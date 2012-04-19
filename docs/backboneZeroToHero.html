@@ -2,7 +2,13 @@
 
 <p>The purpose of this small project is to present some foundational concepts
 of JavaScript and work right up into Backbone.js one of the most popular MV*
-frameworks around these days.</p>             </td>             <td class="code">               <div class="highlight"><pre></pre></div>             </td>           </tr>                               <tr id="section-2">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-2">&#182;</a>               </div>               <h2>Types</h2>             </td>             <td class="code">               <div class="highlight"><pre>
+frameworks around these days.</p>             </td>             <td class="code">               <div class="highlight"><pre></pre></div>             </td>           </tr>                               <tr id="section-2">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-2">&#182;</a>               </div>               <h2>Types</h2>
+
+<p>In JS there are objects, dates, arrays, strings, numbers, regexp, and functions as built in types.
+Each of these types has an underlying <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/prototype">Prototype</a>.
+The prototype is what defines each type's properties and methods. 
+Below is a breakdown of each JS object type.</p>             </td>             <td class="code">               <div class="highlight"><pre>
+
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;---------------- Object Types ----------------&#39;</span><span class="p">);</span>
 
 </pre></div>             </td>           </tr>                               <tr id="section-3">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-3">&#182;</a>               </div>               <h3><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object">Object</a></h3>
@@ -22,7 +28,7 @@ Also can be used by...</p>
 <p>Dates are kind of strange. You'll note when logging typeof myDate
 that it will merely say <strong>object</strong> instead of Date. That's because
 the date is a <strong>type</strong> of object. Fortunately, to see if an object is
-a date you can use a native JavaScript functino toString to help print out a
+a date you can use a native JavaScript function <code>toString</code> to help print out a
 more specific type, then test the result to see if it's a date.</p>
 
 <p>toString.call(new Date());</p>             </td>             <td class="code">               <div class="highlight"><pre>
@@ -31,7 +37,13 @@ more specific type, then test the result to see if it's a date.</p>
 
 </pre></div>             </td>           </tr>                               <tr id="section-5">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-5">&#182;</a>               </div>               <h3><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array">Array</a></h3>
 
-<p>This does something similar to the date.  </p>             </td>             <td class="code">               <div class="highlight"><pre>
+<p>An array in JavaScript. This does something similar to the date when calling toString.
+Can also be called with...</p>
+
+<pre><code>var foods = new Array();
+</code></pre>
+
+<p>But again, most choose just to use the <code>[]</code>.</p>             </td>             <td class="code">               <div class="highlight"><pre>
 <span class="kd">var</span> <span class="nx">myArray</span> <span class="o">=</span> <span class="p">[];</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">myArray</span><span class="p">,</span> <span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">myArray</span><span class="p">));</span> <span class="c1">// result: object, [object Array]</span>
 
@@ -43,60 +55,65 @@ more specific type, then test the result to see if it's a date.</p>
 
 </pre></div>             </td>           </tr>                               <tr id="section-7">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-7">&#182;</a>               </div>               <h3><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number">Number</a></h3>
 
-<p>This is a basic number in JavaScript and by default is a floating point number.</p>             </td>             <td class="code">               <div class="highlight"><pre>
+<p>This is a number in JavaScript and by default is a floating point number in memory.</p>             </td>             <td class="code">               <div class="highlight"><pre>
 <span class="kd">var</span> <span class="nx">myNumber</span> <span class="o">=</span> <span class="mi">12345</span><span class="p">;</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">myNumber</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">myNumber</span><span class="p">);</span> <span class="c1">// result: number</span>
 
 </pre></div>             </td>           </tr>                               <tr id="section-8">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-8">&#182;</a>               </div>               <h3><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></h3>
 
-<p>This is a basic string in JavaScript.</p>             </td>             <td class="code">               <div class="highlight"><pre>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="kc">true</span><span class="p">);</span>
+<p>This is a boolean type.</p>             </td>             <td class="code">               <div class="highlight"><pre>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="kc">true</span><span class="p">);</span> <span class="c1">// result: boolean</span>
 
 </pre></div>             </td>           </tr>                               <tr id="section-9">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-9">&#182;</a>               </div>               <h3><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function">Function</a></h3>
 
 <p>Functions in JavaScript are how you get things done. There are two ways to define them. <br />
-First is this way below. And you use the function by...</p>
+First is this way below. Notice you DO NOT need a semicolon after this type of function.
+When defining a function in this way, it is available anywhere throughout the application.
+This means you can use it before it's actually even defined.</p>             </td>             <td class="code">               <div class="highlight"><pre>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">doFunctionyThings</span><span class="p">);</span> <span class="c1">// result: function</span>
+<span class="kd">function</span> <span class="nx">doFunctionyThings</span><span class="p">(){}</span> 
 
-<p>doFunctionyThings();</p>
-
-<p>The <code>()</code> on the end of the doFunctionyThings causes the function to execute.</p>             </td>             <td class="code">               <div class="highlight"><pre>
-<span class="kd">function</span> <span class="nx">doFunctionyThings</span><span class="p">(){</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>  <span class="c1">// Result: window</span>
-<span class="p">}</span>
-
-</pre></div>             </td>           </tr>                               <tr id="section-10">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-10">&#182;</a>               </div>               <p>This is the other way of defining functions called function variables. When you assign
-a variable such as <code>User</code> to equal a function, that function is now referred to as the User's
-<strong>Constructor</strong></p>             </td>             <td class="code">               <div class="highlight"><pre>
+</pre></div>             </td>           </tr>                               <tr id="section-10">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-10">&#182;</a>               </div>               <p>This is the other way of defining functions. Basically it just assigns the function to a variable.</p>             </td>             <td class="code">               <div class="highlight"><pre>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">User</span><span class="p">);</span> <span class="c1">// result: undefined (Because this one is defined as a variable)</span>
 <span class="kd">var</span> <span class="nx">User</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">){</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>  <span class="c1">// The user is given a property of name.</span>
 <span class="p">};</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">User</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">User</span><span class="p">);</span> <span class="c1">// result: function</span>
 
-<span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">();</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">user</span><span class="p">,</span> <span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">user</span><span class="p">));</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user</span> <span class="k">instanceof</span> <span class="nx">User</span><span class="p">);</span>
-</pre></div>             </td>           </tr>                               <tr id="section-11">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-11">&#182;</a>               </div>               <p>Step 2.
-JavaScript is a dynamic language.
-There is no such thing as a 'class'.
-A classes behavior CAN however be emulated using certain patterns.</p>             </td>             <td class="code">               <div class="highlight"><pre>
+</pre></div>             </td>           </tr>                               <tr id="section-11">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-11">&#182;</a>               </div>               <p>Another way to use functions in JavaScript is with the <strong>new</strong> keyword. This creates an instance of a User.</p>             </td>             <td class="code">               <div class="highlight"><pre>
+<span class="kd">var</span> <span class="nx">hero</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">(</span><span class="s2">&quot;Boba Fett&quot;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">hero</span><span class="p">,</span> <span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">hero</span><span class="p">),</span> <span class="nx">hero</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span> <span class="c1">// result: object, [object Object], Boba Fett</span>
 
+</pre></div>             </td>           </tr>                               <tr id="section-12">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-12">&#182;</a>               </div>               <p>You can use the <code>instanceof</code> keyword to determine if a variable is a type of a certain constructor.
+Here I am checking to make sure that the user I created is actually an instance of the User constructor.</p>             </td>             <td class="code">               <div class="highlight"><pre>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">hero</span> <span class="k">instanceof</span> <span class="nx">User</span><span class="p">);</span>
+
+</pre></div>             </td>           </tr>                               <tr id="section-13">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-13">&#182;</a>               </div>               <h2>Prorotype</h2>
+
+<p>JavaScript is a dynamic language. There is no such thing as a 'class' in the classical OO sense of C#, or Java.
+Class behavior CAN however be emulated using the function's <strong>prototype</strong> along with certain design patterns.</p>             </td>             <td class="code">               <div class="highlight"><pre>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;---------------- Prototype ----------------&#39;</span><span class="p">);</span>
 
+</pre></div>             </td>           </tr>                               <tr id="section-14">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-14">&#182;</a>               </div>               <p>This will become clear shortly, just hang in there!</p>             </td>             <td class="code">               <div class="highlight"><pre>
 <span class="kd">var</span> <span class="nx">Tower</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">extend</span><span class="p">({},</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">Events</span><span class="p">);</span>
 
-</pre></div>             </td>           </tr>                               <tr id="section-12">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-12">&#182;</a>               </div>               <p>Prototype</p>             </td>             <td class="code">               <div class="highlight"><pre>
+</pre></div>             </td>           </tr>                               <tr id="section-15">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-15">&#182;</a>               </div>               <p>We are going to define an Airplane "class" if you will. Again, not REALLY a class, but you can kind of think of it like that.</p>             </td>             <td class="code">               <div class="highlight"><pre>
 <span class="kd">var</span> <span class="nx">Airplane</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">airline</span><span class="p">,</span> <span class="nx">number</span><span class="p">){</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">number</span> <span class="o">=</span> <span class="nx">number</span><span class="p">;</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">airline</span> <span class="o">=</span> <span class="nx">airline</span><span class="p">;</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">fuelTank</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
     
-</pre></div>             </td>           </tr>                               <tr id="section-13">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-13">&#182;</a>               </div>               <p>We'll get to this</p>             </td>             <td class="code">               <div class="highlight"><pre>
+</pre></div>             </td>           </tr>                               <tr id="section-16">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-16">&#182;</a>               </div>               <p>Again, we'll get to this...</p>             </td>             <td class="code">               <div class="highlight"><pre>
     <span class="nx">Tower</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;clear-for-landing&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">land</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
 <span class="p">};</span>
 
+</pre></div>             </td>           </tr>                               <tr id="section-17">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-17">&#182;</a>               </div>               <p>Notice the use of <code>this</code> here. In JavaScript <code>this</code> is a keyword. It is <em>similar</em> to C#, or Java, but it can get a little bit tricky.
+<code>this</code> refers to the <strong>caller</strong> of the function. Most of the time when using it like below in this fuel method you won't run into issues.
+It will simply refer to the instance of the Airplane you are defining. So since fuelTank is defined in the Airplane's constructor,
+it is available throughout the Airplane's prototype.</p>             </td>             <td class="code">               <div class="highlight"><pre>
 <span class="nx">Airplane</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">fuel</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">amount</span><span class="p">){</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">fuelTank</span> <span class="o">=</span> <span class="nx">amount</span><span class="p">;</span>
-</pre></div>             </td>           </tr>                               <tr id="section-14">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-14">&#182;</a>               </div>               <p>Return this to allow for chaining</p>             </td>             <td class="code">               <div class="highlight"><pre>
+</pre></div>             </td>           </tr>                               <tr id="section-18">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-18">&#182;</a>               </div>               <p>Return this to allow for chaining</p>             </td>             <td class="code">               <div class="highlight"><pre>
     <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
 <span class="p">};</span>
 
@@ -106,7 +123,6 @@ A classes behavior CAN however be emulated using certain patterns.</p>          
     <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
 <span class="p">};</span>
 
-</pre></div>             </td>           </tr>                               <tr id="section-15">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-15">&#182;</a>               </div>               <p>Listening for it's number</p>             </td>             <td class="code">               <div class="highlight"><pre>
 <span class="nx">Airplane</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">land</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">flight</span><span class="p">){</span>
     <span class="k">if</span><span class="p">(</span><span class="nx">flight</span> <span class="o">===</span> <span class="k">this</span><span class="p">.</span><span class="nx">number</span><span class="p">){</span>
          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;wheels down skid skid landed &#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">number</span><span class="p">);</span>
@@ -114,14 +130,59 @@ A classes behavior CAN however be emulated using certain patterns.</p>          
     <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="kd">var</span> <span class="nx">plane</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Airplane</span><span class="p">(</span><span class="s1">&#39;southwest&#39;</span><span class="p">,</span> <span class="mi">1234</span><span class="p">);</span>
-<span class="nx">plane</span><span class="p">.</span><span class="nx">fuel</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">fly</span><span class="p">()</span>
-    <span class="p">.</span><span class="nx">land</span><span class="p">(</span><span class="mi">1234</span><span class="p">);</span>
-    
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">plane</span><span class="p">.</span><span class="nx">fuelTank</span><span class="p">);</span>
+</pre></div>             </td>           </tr>                               <tr id="section-19">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-19">&#182;</a>               </div>               <p>Something interesting to note is that you can also define functions inside of a constructor like...</p>
 
-</pre></div>             </td>           </tr>                               <tr id="section-16">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-16">&#182;</a>               </div>               <p>Extend</p>             </td>             <td class="code">               <div class="highlight"><pre>
+<pre><code>var Airplane = function(){
+    this.fuel = function() { // Do stuff... }
+};
+</code></pre>
+
+<p>However, performance and re-usability are at stake here. <br />
+Defining functions like this inside of constructors get re-created every time you use them. <br />
+http://jsperf.com/prototype-vs-instance-functions <br />
+Also, using the prototype makes the functions available on every single instance of the function without
+having to re-create it. </p>             </td>             <td class="code">               <div class="highlight"><pre>
+
+</pre></div>             </td>           </tr>                               <tr id="section-20">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-20">&#182;</a>               </div>               <h3>Inheritance</h3>
+
+<p>Most OO languages have a concept of inheritance. Basically creating a new class with another class as it's base.
+In JavaScript, class inheritance is <em>sorta</em> possible using the prototype.</p>
+
+<p>Every single function or class can be executed using <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/call">call</a> 
+and <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/apply">apply</a>.
+When using call and apply, the first arugment passed in is <em>context</em> you want inside the function call. Or in other words, it defines
+what <code>this</code> means when calling a the function. The main difference between call and apply is that using call you can pass in
+each argument in order, and in apply you pass in an array of arguments.</p>             </td>             <td class="code">               <div class="highlight"><pre>
+<span class="kd">var</span> <span class="nx">doSomething</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">)</span> <span class="p">{</span> 
+    <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">z</span><span class="p">;</span> 
+<span class="p">};</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">doSomething</span><span class="p">.</span><span class="nx">call</span><span class="p">({</span> <span class="nx">z</span><span class="o">:</span> <span class="mi">7</span> <span class="p">},</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">doSomething</span><span class="p">.</span><span class="nx">apply</span><span class="p">({</span> <span class="nx">z</span><span class="o">:</span> <span class="mi">7</span> <span class="p">},</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]));</span>
+
+</pre></div>             </td>           </tr>                               <tr id="section-21">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-21">&#182;</a>               </div>               <p>Now for the inheritance part. You can create a Boeing747 which inherits from an Airplane like...
+Also, note the <code>arguments</code> below. Even though there isn't <code>(name, number)</code> like in the Airplane constructor,
+arguments is automatically assigned and given ALL of the incoming arguments as an array. Then the arguments can 
+be passed to the Airplane constructor, and applied to the Boeing747 constructor. Effectively calling <code>new Airplane('southwest', 1234);</code></p>             </td>             <td class="code">               <div class="highlight"><pre>
+<span class="kd">var</span> <span class="nx">Boeing747</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">Airplane</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span> 
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;747&#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">number</span><span class="p">);</span>
+<span class="p">};</span>
+
+</pre></div>             </td>           </tr>                               <tr id="section-22">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-22">&#182;</a>               </div>               <p>We'll cover in detail shortly, but it basically takes two things and squishes them together. This ensures that all of the functions
+of an airplane are also available on the Boeing747.</p>             </td>             <td class="code">               <div class="highlight"><pre>
+<span class="nx">_</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="nx">Boeing747</span><span class="p">.</span><span class="nx">prototype</span><span class="p">,</span> <span class="nx">Airplane</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">plane</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Boeing747</span><span class="p">(</span><span class="s1">&#39;southwest&#39;</span><span class="p">,</span> <span class="mi">1234</span><span class="p">);</span>
+<span class="nx">plane</span><span class="p">.</span><span class="nx">fuel</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">fly</span><span class="p">()</span> <span class="c1">// result: Flying is fun... </span>
+    <span class="p">.</span><span class="nx">land</span><span class="p">(</span><span class="mi">1234</span><span class="p">);</span> <span class="c1">// result: </span>
+    
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">plane</span><span class="p">.</span><span class="nx">fuelTank</span><span class="p">);</span> <span class="c1">// result: 30</span>
+
+</pre></div>             </td>           </tr>                               <tr id="section-23">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-23">&#182;</a>               </div>               <h3>Extend</h3>
+
+<p>Extend is a very common concept in JavaScript. You can do it in jQuery with $.extend, or underscore with _.extend.
+Effectively it takes multiple objects and combines them all into one object.</p>             </td>             <td class="code">               <div class="highlight"><pre>
 <span class="kd">var</span> <span class="nx">objectA</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">someProp</span><span class="o">:</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span>
     <span class="nx">someFunc</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
@@ -138,18 +199,16 @@ A classes behavior CAN however be emulated using certain patterns.</p>          
 <span class="p">};</span>
 
 <span class="kd">var</span> <span class="nx">extendedObj</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">extend</span><span class="p">({},</span> <span class="nx">objectA</span><span class="p">,</span> <span class="nx">objectB</span> <span class="cm">/* This can go on and on and on */</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">extendedObj</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">extendedObj</span><span class="p">);</span> <span class="c1">// result: an object that has all of the functions of objectA AND objectB</span>
 
-</pre></div>             </td>           </tr>                               <tr id="section-17">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-17">&#182;</a>               </div>               <p>Anonymous functions</p>             </td>             <td class="code">               <div class="highlight"><pre>
+</pre></div>             </td>           </tr>                               <tr id="section-24">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-24">&#182;</a>               </div>               <h3>Anonymous functions</h3>             </td>             <td class="code">               <div class="highlight"><pre>
 
-</pre></div>             </td>           </tr>                               <tr id="section-18">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-18">&#182;</a>               </div>               <p>What about private stuff?
+</pre></div>             </td>           </tr>                               <tr id="section-25">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-25">&#182;</a>               </div>               <p>What about private stuff like in C# and Java?
 That's where the patterns come in...
-Bring on, Revealing Module Pattern one of the most popular patterns for such a thing
-Uses the concept of a closure.</p>             </td>             <td class="code">               <div class="highlight"><pre>
+We will utilize a concept called a <strong>self executing anonymous function</strong> and <strong>closures</strong>.</p>             </td>             <td class="code">               <div class="highlight"><pre>
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;---------------- Closure ----------------&#39;</span><span class="p">);</span>
-</pre></div>             </td>           </tr>                               <tr id="section-19">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-19">&#182;</a>               </div>               <p>Closure Demo</p>             </td>             <td class="code">               <div class="highlight"><pre>
-<span class="kd">var</span> <span class="nx">closureDemo</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+<span class="kd">var</span> <span class="nx">closureDemo</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
     <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
         <span class="nx">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
     
@@ -166,16 +225,26 @@ Uses the concept of a closure.</p>             </td>             <td class="code
         <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
     <span class="p">};</span>
     
-</pre></div>             </td>           </tr>                               <tr id="section-20">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-20">&#182;</a>               </div>               <p>I can still use x and Y, just not a and b</p>             </td>             <td class="code">               <div class="highlight"><pre>
+</pre></div>             </td>           </tr>                               <tr id="section-26">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-26">&#182;</a>               </div>               <p>I can still use x and Y, just not a and b.</p>             </td>             <td class="code">               <div class="highlight"><pre>
     <span class="k">return</span> <span class="p">{</span>
         <span class="nx">doSomething</span><span class="o">:</span> <span class="nx">doSomething</span>
     <span class="p">};</span>
-<span class="p">}())</span>
+</pre></div>             </td>           </tr>                               <tr id="section-27">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-27">&#182;</a>               </div>               <p>The <code>()</code> on the end here causes the function to automatically fire. Whatever is returned get's assigned to the variable.</p>             </td>             <td class="code">               <div class="highlight"><pre>
+<span class="p">}();</span> 
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">closureDemo</span><span class="p">.</span><span class="nx">doSomething</span><span class="p">());</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">closureDemo</span><span class="p">.</span><span class="nx">doSomething</span><span class="p">());</span> <span class="c1">// result: 8</span>
 
-</pre></div>             </td>           </tr>                               <tr id="section-21">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-21">&#182;</a>               </div>               <p>Now the revealing module pattern stuff...
-Technically this would be considered a static class</p>             </td>             <td class="code">               <div class="highlight"><pre>
+</pre></div>             </td>           </tr>                               <tr id="section-28">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-28">&#182;</a>               </div>               <p>Here all of these variables were declared inside of the anonymous function, so therefore they are out of memory now. So if I tried...</p>
+
+<pre><code>console.log(x,y,a,b,result);  // result: ALL UNDEFINED!
+</code></pre>
+
+<p>The browser would throw errors.  </p>             </td>             <td class="code">               <div class="highlight"><pre>
+
+
+</pre></div>             </td>           </tr>                               <tr id="section-29">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-29">&#182;</a>               </div>               <h3>Revealing Module Pattern</h3>
+
+<p>This pattern is a way of defining classes using anonymous functions.</p>             </td>             <td class="code">               <div class="highlight"><pre>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;---------------- Revealing Module ----------------&#39;</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">myRevealingModuleClass</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
     <span class="kd">var</span> <span class="nx">revealed</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
@@ -197,7 +266,7 @@ Technically this would be considered a static class</p>             </td>       
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myRevealingModuleClass</span><span class="p">.</span><span class="nx">foo</span><span class="p">());</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;---------------- Revealing Prototype ----------------&#39;</span><span class="p">);</span>
-</pre></div>             </td>           </tr>                               <tr id="section-22">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-22">&#182;</a>               </div>               <p>Now the revealing PROTOTYPE pattern...</p>             </td>             <td class="code">               <div class="highlight"><pre>
+</pre></div>             </td>           </tr>                               <tr id="section-30">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-30">&#182;</a>               </div>               <p>Now the revealing PROTOTYPE pattern... Similar concept as module</p>             </td>             <td class="code">               <div class="highlight"><pre>
 <span class="kd">var</span> <span class="nx">myRevealingPrototypeClass</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){};</span>
 
 <span class="nx">myRevealingPrototypeClass</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
@@ -217,14 +286,20 @@ Technically this would be considered a static class</p>             </td>       
     <span class="p">};</span>
 <span class="p">}());</span>
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myRevealingPrototypeClass</span><span class="p">.</span><span class="nx">foo</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myRevealingPrototypeClass</span><span class="p">.</span><span class="nx">foo</span><span class="p">);</span> <span class="c1">// Can&#39;t use foo here! Have to use an instance of the class to get to it.</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">new</span> <span class="nx">myRevealingPrototypeClass</span><span class="p">().</span><span class="nx">foo</span><span class="p">());</span>
 
-</pre></div>             </td>           </tr>                               <tr id="section-23">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-23">&#182;</a>               </div>               <p>Use case for reducing jQuery spaghetti code...
-jQuery is a DOM manipulation tool
-NOT a framework, it only has one job (And it's damn good at it)</p>             </td>             <td class="code">               <div class="highlight"><pre>
+</pre></div>             </td>           </tr>                               <tr id="section-31">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-31">&#182;</a>               </div>               <h2>jQuery</h2>
 
-</pre></div>             </td>           </tr>                               <tr id="section-24">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-24">&#182;</a>               </div>               <p>So all of this is a big bowl of spaghetti...</p>             </td>             <td class="code">               <div class="highlight"><pre>
+<p>jQuery is a DOM manipulation tool. It takes care of many of the cross browser concerns involved with it.  You can replace browser functions like...</p>
+
+<pre><code>var elements = document.getElementsByClassName('someClass'); // Replace this...
+var els = $('.someClass'); // With this...
+</code></pre>
+
+<p>jQuery is NOT a framework, it's a tool and only has one job (And it's damn good at it).  </p>
+
+<p>One problem though with jQuery is people inevitably end up writing code that looks like this...(spaghetti code!)</p>             </td>             <td class="code">               <div class="highlight"><pre>
 <span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
     <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.myClass&#39;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">);</span>
@@ -243,7 +318,8 @@ NOT a framework, it only has one job (And it's damn good at it)</p>             
     <span class="p">});</span>
 <span class="p">});</span>
 
-</pre></div>             </td>           </tr>                               <tr id="section-25">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-25">&#182;</a>               </div>               <p>It's so much nicer to cache, things, and define functions if needed
+</pre></div>             </td>           </tr>                               <tr id="section-32">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-32">&#182;</a>               </div>               <p>Instead adopt some of these practices. 
+Cache your selectors, and define callback functions if needed.
 This speeds up DOM queries since they are expensive!</p>             </td>             <td class="code">               <div class="highlight"><pre>
 <span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
     <span class="kd">var</span> <span class="nx">myClass</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.myClass&#39;</span><span class="p">),</span>
@@ -259,7 +335,7 @@ This speeds up DOM queries since they are expensive!</p>             </td>      
              <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;oops I forgot this one!&#39;</span><span class="p">);</span>
         <span class="p">});</span>
     
-</pre></div>             </td>           </tr>                               <tr id="section-26">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-26">&#182;</a>               </div>               <p>Note in jQuery 1.7 this is also accepted</p>             </td>             <td class="code">               <div class="highlight"><pre>
+</pre></div>             </td>           </tr>                               <tr id="section-33">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-33">&#182;</a>               </div>               <p>Note in jQuery 1.7 this is also accepted</p>             </td>             <td class="code">               <div class="highlight"><pre>
     <span class="nx">myOtherClass</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="nx">doCommonStuff</span><span class="p">);</span>
     
     <span class="nx">crazyClass</span><span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
@@ -268,7 +344,7 @@ This speeds up DOM queries since they are expensive!</p>             </td>      
     <span class="p">});</span>
 <span class="p">});</span>
 
-</pre></div>             </td>           </tr>                               <tr id="section-27">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-27">&#182;</a>               </div>               <p>Step 3. Events
+</pre></div>             </td>           </tr>                               <tr id="section-34">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-34">&#182;</a>               </div>               <p>Step 3. Events
 Things like click, mouseover, blur, etc. are all browser events
 $('selector').click() or $('selector').on('click');
 Also there are custom events.
@@ -277,7 +353,7 @@ This pattern has publishers(trigger) and subscribers(bind)
 Just like the browser, it publishes a click event, and the dom elements listen for the event.</p>             </td>             <td class="code">               <div class="highlight"><pre>
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;---------------- Events ----------------&#39;</span><span class="p">);</span>
-</pre></div>             </td>           </tr>                               <tr id="section-28">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-28">&#182;</a>               </div>               <p>Extend the pub/sub of Backbone into an annonymous object
+</pre></div>             </td>           </tr>                               <tr id="section-35">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-35">&#182;</a>               </div>               <p>Extend the pub/sub of Backbone into an annonymous object
 Use the 'mediator pattern' and define ONE object to handle ALL events</p>             </td>             <td class="code">               <div class="highlight"><pre>
 <span class="kd">var</span> <span class="nx">Vent</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">extend</span><span class="p">({},</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">Events</span><span class="p">);</span>
 
@@ -287,7 +363,7 @@ Use the 'mediator pattern' and define ONE object to handle ALL events</p>       
 
 <span class="nx">Vent</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">&#39;my-custom-event&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
 
-</pre></div>             </td>           </tr>                               <tr id="section-29">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-29">&#182;</a>               </div>               <p>So, think about this as an airport...</p>             </td>             <td class="code">               <div class="highlight"><pre>
+</pre></div>             </td>           </tr>                               <tr id="section-36">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-36">&#182;</a>               </div>               <p>So, think about this as an airport...</p>             </td>             <td class="code">               <div class="highlight"><pre>
 
 <span class="kd">var</span> <span class="nx">southwest1457</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Airplane</span><span class="p">(</span><span class="s1">&#39;southwest&#39;</span><span class="p">,</span> <span class="mi">1457</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">southwest254</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Airplane</span><span class="p">(</span><span class="s1">&#39;southwest&#39;</span><span class="p">,</span> <span class="mi">254</span><span class="p">);</span>
@@ -298,7 +374,7 @@ Use the 'mediator pattern' and define ONE object to handle ALL events</p>       
 <span class="nx">Tower</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">&#39;clear-for-landing&#39;</span><span class="p">,</span> <span class="mi">567</span><span class="p">);</span>
 
 
-</pre></div>             </td>           </tr>                               <tr id="section-30">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-30">&#182;</a>               </div>               <p>Movie List
+</pre></div>             </td>           </tr>                               <tr id="section-37">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-37">&#182;</a>               </div>               <p>Movie List
 1. Create Models and Collection
 2. Create Views
 3. Utilize handlbars
@@ -326,20 +402,20 @@ Use the 'mediator pattern' and define ONE object to handle ALL events</p>       
     <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;movies/&#39;</span><span class="p">,</span>
     <span class="nx">responseText</span><span class="o">:</span> <span class="nx">moviesJson</span>
 <span class="p">});</span>
-</pre></div>             </td>           </tr>                               <tr id="section-31">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-31">&#182;</a>               </div>               <p>Step 1.
+</pre></div>             </td>           </tr>                               <tr id="section-38">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-38">&#182;</a>               </div>               <p>Step 1.
 Models represent any form of data.
 They have built in functions for getting properties, 
 fetching data, saving data and many more. </p>             </td>             <td class="code">               <div class="highlight"><pre>
 <span class="kd">var</span> <span class="nx">Movie</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">({});</span>
 
-</pre></div>             </td>           </tr>                               <tr id="section-32">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-32">&#182;</a>               </div>               <p>Collections is just a set of models with all of the
+</pre></div>             </td>           </tr>                               <tr id="section-39">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-39">&#182;</a>               </div>               <p>Collections is just a set of models with all of the
 collections functions from _ (each, any, find)</p>             </td>             <td class="code">               <div class="highlight"><pre>
 <span class="kd">var</span> <span class="nx">Movies</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">Collection</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
     <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;movies/&#39;</span><span class="p">,</span>
     <span class="nx">model</span><span class="o">:</span> <span class="nx">Movie</span>
 <span class="p">});</span>
 
-</pre></div>             </td>           </tr>                               <tr id="section-33">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-33">&#182;</a>               </div>               <p>Step 2.</p>             </td>             <td class="code">               <div class="highlight"><pre>
+</pre></div>             </td>           </tr>                               <tr id="section-40">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-40">&#182;</a>               </div>               <p>Step 2.</p>             </td>             <td class="code">               <div class="highlight"><pre>
 <span class="kd">var</span> <span class="nx">MoviesList</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
     <span class="nx">el</span><span class="o">:</span> <span class="s1">&#39;#movies&#39;</span><span class="p">,</span>
     <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
@@ -389,7 +465,7 @@ collections functions from _ (each, any, find)</p>             </td>            
     <span class="p">},</span>
     <span class="nx">showDescription</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
         <span class="nx">Backbone</span><span class="p">.</span><span class="nx">history</span><span class="p">.</span><span class="nx">navigate</span><span class="p">(</span><span class="s1">&#39;movies/&#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">),</span> <span class="kc">true</span><span class="p">);</span>
-</pre></div>             </td>           </tr>                               <tr id="section-34">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-34">&#182;</a>               </div>               <p>alert(this.model.get('description'));</p>             </td>             <td class="code">               <div class="highlight"><pre>
+</pre></div>             </td>           </tr>                               <tr id="section-41">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-41">&#182;</a>               </div>               <p>alert(this.model.get('description'));</p>             </td>             <td class="code">               <div class="highlight"><pre>
     <span class="p">}</span>
 <span class="p">});</span>
 
@@ -433,10 +509,10 @@ collections functions from _ (each, any, find)</p>             </td>            
 <span class="p">});</span>
 
 
-</pre></div>             </td>           </tr>                               <tr id="section-35">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-35">&#182;</a>               </div>               <p>Namespace
+</pre></div>             </td>           </tr>                               <tr id="section-42">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-42">&#182;</a>               </div>               <p>Namespace
 To eliminate the cloggin of the window... Use Namespaces!</p>             </td>             <td class="code">               <div class="highlight"><pre>
 
-</pre></div>             </td>           </tr>                               <tr id="section-36">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-36">&#182;</a>               </div>               <p>Just in case NS is already defined... Do this</p>             </td>             <td class="code">               <div class="highlight"><pre>
+</pre></div>             </td>           </tr>                               <tr id="section-43">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-43">&#182;</a>               </div>               <p>Just in case NS is already defined... Do this</p>             </td>             <td class="code">               <div class="highlight"><pre>
 <span class="kd">var</span> <span class="nx">NS</span> <span class="o">=</span> <span class="nx">NS</span> <span class="o">||</span> <span class="p">{};</span>
 
 <span class="nx">NS</span><span class="p">.</span><span class="nx">Models</span> <span class="o">=</span> <span class="nx">NS</span><span class="p">.</span><span class="nx">Models</span> <span class="o">||</span> <span class="p">{};</span>
